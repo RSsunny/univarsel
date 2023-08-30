@@ -4,11 +4,9 @@ const getdata=async(isShowall)=>{
     const data=dataobj.data
     pushdata(data.tools,isShowall)
 }
-const pushdata=(data,isShowall)=>{
-  
+const pushdata=(data,isShowall)=>{ 
     const cardContainer=document.getElementById('card-container')
 cardContainer.textContent=''
-
     if(!isShowall){
       data=data.slice(0,8)
       data?.forEach(data=>{
@@ -30,8 +28,7 @@ cardContainer.textContent=''
          `
          cardContainer.appendChild(div)
     })
-    }else{
-      
+    }else{ 
       data?.forEach(data=>{
         const div=document.createElement('div')
         div.classList=`card card-compact bg-gray-300 text-black`
@@ -61,11 +58,9 @@ const showmore=(isShowall)=>{
 }
 const handleModal=(id)=>{
   my_modal_3.showModal()
-  getdetails(id)
-    
+  getdetails(id)   
 }
 const getdetails=async(id)=>{
-  
   const res=await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`)
   const dataArry=await res.json()
   const data=dataArry.data
